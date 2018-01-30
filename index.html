@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>What's for Lunch?</title>
+        <script
+          src="http://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/mblode/marx/master/css/marx.min.css">
+        <script>
+            var values = ['-1' ,'-0', '0', '+0', '+1'];
+            var offsets = {'-': -1, '+': 1};
+            $(document).ready(function() {
+                $("button").click(function() {
+                    var button = $(this);
+                    var value = $(button.parent().children()[1]);
+                    var current_index = values.indexOf(value.text());
+                    var offset = offsets[button.text()];
+                    var new_value = values[current_index + offset];
+                    value.text(new_value);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <main>
+        <h1>What's for Lunch?
+        <input type="text" placeholder="Name">
+        </h1>
+        <table cellspacing="0">
+            <tr>
+                <td>
+                    Cupcakes
+                </td>
+                <td>
+                    <button>-</button><span>0</span> <button>+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Five Guys
+                </td>
+                <td>
+                    <button>-</button><span>0</span> <button>+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    IHOP
+                </td>
+                <td>
+                    <button>-</button><span>0</span> <button>+</button>
+                </td>
+            </tr>
+        </table>
+        <input type="text" placeholder="New Suggestion"><button>Submit</button>
+        </main>
+    </body>
+</html>
