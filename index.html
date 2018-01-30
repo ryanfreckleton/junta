@@ -11,6 +11,9 @@
             var values = ['-1' ,'-0', '0', '+0', '+1'];
             var offsets = {'-': -1, '+': 1};
             $(document).ready(function() {
+                $("#name").focusout(function() {
+                    console.log($(this).val(), "focused out");
+                });
                 $("button").click(function() {
                     var button = $(this);
                     var value = $(button.parent().children()[1]);
@@ -24,9 +27,8 @@
     </head>
     <body>
         <main>
-        <h1>What's for Lunch?
-        <input type="text" placeholder="Name">
-        </h1>
+        <h1>What's for Lunch?  </h1>
+        <input id="name" type="text" placeholder="Name">
         <table cellspacing="0">
             <tr>
                 <td>
