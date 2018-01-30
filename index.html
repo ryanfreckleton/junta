@@ -11,9 +11,26 @@
         <script>
             var values = ['-1' ,'-0', '0', '+0', '+1'];
             var offsets = {'-': -1, '+': 1};
+            function update() {
+                var items = [];
+                var scores = [];
+                var rows = $("tr");
+                rows.each(function () { items.push($($(this).children()[0]).text().trim())});
+                $("span").each(function () { scores.push($(this).text())});
+                var votes = {}
+                for (var i = 0; i < items.length; i += 1) {
+                    votes[items[i]] = scores[i];
+                }
+                var results = {
+                    "name" : $("#name").val(),
+                    "votes" : votes,
+                    "suggestion" : $("#suggestion").val() || null
+                }
+                console.log(results);
+            }
             $(document).ready(function() {
                 $("#name").focusout(function() {
-                    console.log($(this).val(), "focused out");
+                    update();
                 });
                 $("button").click(function() {
                     var button = $(this);
@@ -22,6 +39,7 @@
                     var offset = offsets[button.text()];
                     var new_value = values[current_index + offset];
                     value.text(new_value);
+                    update();
                 });
             });
         </script>
@@ -56,7 +74,7 @@
                 </td>
             </tr>
         </table>
-        <input type="text" placeholder="New Suggestion"><button>Submit</button>
+        <input type="text" id="suggestion" placeholder="New Suggestion"><button id="suggest">Submit</button>
         </main>
     </body>
 </html>
