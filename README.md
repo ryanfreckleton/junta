@@ -1,7 +1,7 @@
 Junta
 =====
 
-![Build Status](https://travis-ci.com/ryanfreckleton/junta.svg?branch=master)
+[![Junta Application](https://github.com/ryanfreckleton/junta/actions/workflows/actions.yml/badge.svg)](https://github.com/ryanfreckleton/junta/actions/workflows/actions.yml)
 
 What's for lunch?
 -----------------
